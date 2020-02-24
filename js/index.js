@@ -18,9 +18,7 @@ const app = new Vue({
 
 document.addEventListener('DOMContentLoaded', () => {
   const load = document.querySelector('.loading');
-  setTimeout(() => {
-    load.classList.add('loaded');
-  }, 2000);
+  load.classList.add('loaded');
 });
 
 AOS.init({
