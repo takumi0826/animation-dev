@@ -1,0 +1,46 @@
+//ブレイクポイント
+$pc: 1024px; // PC
+$tab: 768px; // タブレット
+$sp: 480px; // スマホ
+$pc-only: 769px;
+
+// line-height計算
+@mixin font-height($font-size, $Ps-height) {
+  font-size: ($font-size / 10) + rem;
+  line-height: ($Ps-height / $font-size);
+}
+//letter-spacing計算
+@mixin letter-space($tracking) {
+  letter-spacing: ($tracking / 1000) + em;
+}
+//vw計算(フォントサイズ)
+@mixin fontsizeVw($font-size) {
+  $window-width: 320; // 画面幅を設定する
+  font-size: ($font-size / $window-width) * 100 + vw;
+}
+
+@mixin pc {
+  @media screen and (max-width: ($pc)) {
+    @content;
+  }
+}
+@mixin tab {
+  @media screen and (max-width: ($tab)) {
+    @content;
+  }
+}
+@mixin sp {
+  @media screen and (max-width: ($sp)) {
+    @content;
+  }
+}
+@mixin pc-only {
+  @media screen and (min-width: ($pc-only)) {
+    @content;
+  }
+}
+
+$cBase: #c1a250;
+$cSub: #44a5cb;
+$cSub2: #cae7f2;
+$cAccent: #da5019;

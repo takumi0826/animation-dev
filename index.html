@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI パーツ</title>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP|Noto+Serif+JP&display=swap" rel="stylesheet" />
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/plugin/swiper.min.css" />
+    <link rel="stylesheet" href="/plugin/aos.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="header">
+        <div class="header__inner header__body">
+          <h1 class="header__logo">
+            <a href="">PortFolio</a>
+          </h1>
+          <nav id="gnav" class="global-nav" :class="{'is-open': burger}">
+            <ul class="global-nav__list">
+              <li class="global-nav__list-item"><a href="" class="global-nav__link">お知らせ</a></li>
+              <li class="global-nav__list-item"><a href="" class="global-nav__link">お料理</a></li>
+              <li class="global-nav__list-item"><a href="" class="global-nav__link">客室</a></li>
+              <li class="global-nav__list-item"><a href="" class="global-nav__link">交通</a></li>
+              <li class="global-nav__list-item--contact">
+                <a href="" class="global-nav__link">お問い合わせ<i class="fas fa-chevron-right"></i></a>
+              </li>
+            </ul>
+          </nav>
+          <button id="burger" class="burger-btn" @click="burgerToggle" :class="{'is-open': burger}">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </header>
+      <main>
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <p class="swiper-slide__title">テキスト</p>
+              <img src="/image/mv-01.jpg" alt="" />
+            </div>
+            <div class="swiper-slide">
+              <p class="swiper-slide__title">テキスト</p>
+              <img src="/image/mv-02.jpg" alt="" />
+            </div>
+            <div class="swiper-slide">
+              <p class="swiper-slide__title">テキスト</p>
+              <img src="/image/mv-03.jpg" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="home-content">
+            <h2 class="heading-2">
+              <span class="en">news</span>
+              <span class="ja">ニュース</span>
+            </h2>
+            <div id="tab" class="post" data-aos="fade-up">
+              <ul class="post__list">
+                <li class="post__list-cat" @click="tabChange(1)" :class="{'is-active': tabNumber === 1}">トピック</li>
+                <li class="post__list-cat" @click="tabChange(2)" :class="{'is-active': tabNumber === 2}">お知らせ</li>
+                <li class="post__list-cat" @click="tabChange(3)" :class="{'is-active': tabNumber === 3}">コラム</li>
+              </ul>
+              <ul class="post__content">
+                <li class="post__content-item" v-if="tabNumber === 1">
+                  <div class="post__content-break">
+                    <span class="post__date">2020.01.12</span>
+                    <h3 class="post__title">テキスト1テキスト1テキスト1</h3>
+                  </div>
+                  <div class="post__content-break">
+                    <span class="post__date">2020.01.12</span>
+                    <h3 class="post__title">テキスト1テキスト1テキスト1</h3>
+                  </div>
+                  <div class="post__content-break">
+                    <span class="post__date">2020.01.12</span>
+                    <h3 class="post__title">テキスト1テキスト1テキスト1</h3>
+                  </div>
+                  <div class="btn-wrap"><a href="/topic" class="btn">一覧を見る</a></div>
+                </li>
+                <li class="post__content-item" v-if="tabNumber === 2">
+                  <div class="post__content-break">
+                    <span class="post__date">2020.01.12</span>
+                    <h3 class="post__title">テキスト2テキスト2テキスト2</h3>
+                  </div>
+                  <div class="post__content-break">
+                    <span class="post__date">2020.01.12</span>
+                    <h3 class="post__title">テキスト2テキスト2テキスト2</h3>
+                  </div>
+                  <div class="post__content-break">
+                    <span class="post__date">2020.01.12</span>
+                    <h3 class="post__title">テキスト2テキスト2テキスト2</h3>
+                  </div>
+                  <div class="btn-wrap"><a href="/news" class="btn">一覧を見る</a></div>
+                </li>
+                <li class="post__content-item" v-if="tabNumber === 3">
+                  <div class="post__content-break">
+                    <span class="post__date">2020.01.12</span>
+                    <h3 class="post__title">テキスト3テキスト3テキスト3</h3>
+                  </div>
+                  <div class="post__content-break">
+                    <span class="post__date">2020.01.12</span>
+                    <h3 class="post__title">テキスト3テキスト3テキスト3</h3>
+                  </div>
+                  <div class="post__content-break">
+                    <span class="post__date">2020.01.12</span>
+                    <h3 class="post__title">テキスト3テキスト3テキスト3</h3>
+                  </div>
+                  <div class="btn-wrap"><a href="/column" class="btn">一覧を見る</a></div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="home-content">
+            <h2 class="heading-2">
+              <span class="en">service</span>
+              <span class="ja">サービス</span>
+            </h2>
+            <div class="col-wrap service">
+              <ul class="flex-box">
+                <li class="flex-item" data-aos="fade-up">
+                  <a href="/" class="service__link">
+                    <p class="service__text">客室1</p>
+                    <img src="/image/material01.jpg" alt="" />
+                  </a>
+                </li>
+                <li class="flex-item" data-aos="fade-up">
+                  <a href="#" class="service__link">
+                    <p class="service__text">朝食</p>
+                    <img src="/image/material05.jpg" alt="" />
+                  </a>
+                </li>
+                <li class="flex-item" data-aos="fade-up">
+                  <a href="#" class="service__link">
+                    <p class="service__text">夕食</p>
+                    <img src="/image/material03.jpg" alt="" />
+                  </a>
+                </li>
+                <li class="flex-item" data-aos="fade-up">
+                  <a href="#" class="service__link">
+                    <p class="service__text">客室2</p>
+                    <img src="/image/material04.jpg" alt="" />
+                  </a>
+                </li>
+                <li class="flex-item" data-aos="fade-up">
+                  <a href="#" class="service__link">
+                    <p class="service__text">客室3</p>
+                    <img src="/image/material02.jpg" alt="" />
+                  </a>
+                </li>
+                <li class="flex-item" data-aos="fade-up">
+                  <a href="#" class="service__link">
+                    <p class="service__text">温泉</p>
+                    <img src="/image/material06.jpg" alt="" />
+                  </a>
+                </li>
+              </ul>
+              <div class="btn-wrap" data-aos="zoom-in"><a href="/column" class="btn">詳細を見る</a></div>
+            </div>
+          </div>
+        </div>
+        <div class="loading">
+          <div class="loading__text">Loading...</div>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="footer__body">
+          <div class="sns">
+            <a href="#" class="twitter"><i class="fab fa-2x fa-twitter"></i></a>
+            <a href="#" class="instagram"><i class="fab fa-2x fa-instagram"></i></a>
+          </div>
+        </div>
+        <p class="copy">©︎ 2020 PortFolio</p>
+      </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <script src="/plugin/aos.js"></script>
+    <script src="/plugin/swiper.min.js"></script>
+    <script src="/js/index.js"></script>
+  </body>
+</html>
